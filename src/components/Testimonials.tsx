@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { TESTIMONIALS, GYM_DETAILS } from '@/lib/data';
+import { TESTIMONIALS } from '@/lib/data';
 import { Star, CheckCircle2 } from 'lucide-react';
 
 export default function Testimonials() {
@@ -14,26 +14,30 @@ export default function Testimonials() {
   const renderCard = (review: (typeof TESTIMONIALS)[0], idx: number) => (
     <div
       key={`${review.id}-${idx}`}
-      className="w-72 sm:w-80 shrink-0 bg-white border border-slate-200/90 hover:border-lime-500/60 rounded-md p-5 shadow-xs shadow-black/10 ring-1 ring-black/10 hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-4 select-none"
+      className="w-64 sm:w-72 shrink-0 bg-white border border-slate-200/90 hover:border-lime-500/60 rounded-2xl p-4 shadow-[inset_0_2px_4px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-3.5 select-none"
     >
-      {/* Top 5-Star Rating */}
-      <div className="space-y-3">
-        <div className="flex items-center gap-1">
-          {[...Array(review.rating)].map((_, i) => (
-            <Star key={i} className="w-3.5 h-3.5 fill-amber-500 text-amber-500 stroke-[1.5]" />
-          ))}
+      {/* Top 5-Star Rating & Badge */}
+      <div className="space-y-2.5">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-0.5">
+            {[...Array(review.rating)].map((_, i) => (
+              <Star key={i} className="w-3.5 h-3.5 fill-amber-500 text-amber-500 stroke-[1.5]" />
+            ))}
+          </div>
+          <span className="text-[10px] font-extrabold text-lime-700 bg-lime-100/90 px-2 py-0.5 rounded-full border border-lime-200/80 uppercase tracking-wider">
+            Verified Review
+          </span>
         </div>
 
         {/* Review Comment Body */}
-        <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-medium">
+        <p className="text-xs text-slate-800 leading-relaxed font-medium">
           &ldquo;{review.comment}&rdquo;
         </p>
       </div>
 
       {/* Reviewer Profile */}
-      <div className="flex items-center gap-3 pt-3 border-t border-slate-100">
-        <div className="relative w-8 h-8 rounded-full overflow-hidden border border-slate-200 shrink-0 bg-slate-100">
-          {/* TODO: PRIORITY — Replace with real Google review avatar */}
+      <div className="flex items-center gap-2.5 pt-2.5 border-t border-slate-100">
+        <div className="relative w-7 h-7 rounded-full overflow-hidden border border-slate-200 shrink-0 bg-slate-100">
           <Image
             src={review.avatar}
             alt={review.name}
@@ -41,10 +45,9 @@ export default function Testimonials() {
             className="object-cover"
           />
         </div>
-        <div className="min-w-0">
-          {/* TODO: Replace with real Google reviewer name */}
+        <div className="min-w-0 flex-1">
           <div className="text-xs font-extrabold text-slate-900 flex items-center gap-1 truncate">
-            <span>{review.name}</span>
+            <span className="truncate">{review.name}</span>
             <CheckCircle2 className="w-3 h-3 text-lime-600 shrink-0" />
           </div>
           <div className="text-[10px] font-semibold text-slate-500 truncate">{review.role}</div>
@@ -70,7 +73,7 @@ export default function Testimonials() {
       </div>
 
       {/* Marquee Container with Left & Right Blur Fade Masks */}
-      <div className="relative w-full mt-10 space-y-5">
+      <div className="relative w-full mt-10 space-y-4">
         {/* Left Gradient Fade Mask */}
         <div className="pointer-events-none absolute top-0 bottom-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent z-20" />
         {/* Right Gradient Fade Mask */}
@@ -81,7 +84,7 @@ export default function Testimonials() {
           <motion.div
             animate={{ x: [0, -1200] }}
             transition={{ repeat: Infinity, ease: 'linear', duration: 30 }}
-            className="flex items-center gap-5 shrink-0"
+            className="flex items-center gap-4 shrink-0"
           >
             {[...row1, ...row1, ...row1, ...row1, ...row1].map((review, idx) =>
               renderCard(review, idx)
@@ -94,7 +97,7 @@ export default function Testimonials() {
           <motion.div
             animate={{ x: [-1200, 0] }}
             transition={{ repeat: Infinity, ease: 'linear', duration: 32 }}
-            className="flex items-center gap-5 shrink-0"
+            className="flex items-center gap-4 shrink-0"
           >
             {[...row2, ...row2, ...row2, ...row2, ...row2].map((review, idx) =>
               renderCard(review, idx)

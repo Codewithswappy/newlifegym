@@ -59,7 +59,7 @@ export default function BookingModal({ isOpen, onClose, defaultPlan = 'Free Tria
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.94, y: 12 }}
             transition={{ type: 'spring', damping: 25, stiffness: 350 }}
-            className="relative w-full max-w-sm sm:max-w-md bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-6 shadow-2xl z-10 overflow-hidden text-slate-900"
+            className="relative w-full max-w-sm sm:max-w-md bg-white border border-slate-200/90 rounded-lg p-5 sm:p-6 shadow-2xl z-10 overflow-hidden text-slate-900"
           >
             {/* Close Button */}
             <button

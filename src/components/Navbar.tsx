@@ -90,12 +90,6 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
         {/* Mobile Toggle */}
         <div className="flex items-center gap-2 md:hidden">
           <button
-            onClick={() => onOpenBooking('Book free trial')}
-            className="sm:hidden px-3 py-1.5 bg-lime-500 text-slate-950 font-bold rounded-lg text-xs"
-          >
-            Trial
-          </button>
-          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 text-slate-700 rounded-lg hover:bg-slate-100 transition-colors"
             aria-label="Toggle Menu"

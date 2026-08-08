@@ -541,11 +541,13 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
           </button>
         </div>
 
-        {/* Small Scientific Disclaimer */}
-        <p className="text-center text-[9px] sm:text-[10px] text-slate-500 flex items-center justify-center gap-1 font-medium">
-          <Info className="w-3 h-3 text-[#3F87FF] shrink-0" />
-          <span>Calculations use the Mifflin–St Jeor & WHO standards as fitness estimates, not medical advice.</span>
-        </p>
+        {/* Small Scientific Disclaimer (Icon cleanly aligned with text on mobile) */}
+        <div className="flex items-start justify-center gap-1.5 max-w-md mx-auto text-center text-[10px] sm:text-[11px] text-slate-500 font-medium">
+          <Info className="w-3.5 h-3.5 text-[#3F87FF] shrink-0 mt-0.5" />
+          <span className="text-left sm:text-center leading-normal">
+            Calculations use the Mifflin–St Jeor & WHO standards as fitness estimates, not medical advice.
+          </span>
+        </div>
 
       </div>
     </section>

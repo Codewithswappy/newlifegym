@@ -5,7 +5,10 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import MarqueeBanner from '@/components/MarqueeBanner';
 import About from '@/components/About';
+import WhyChooseUs from '@/components/WhyChooseUs';
 import Programs from '@/components/Programs';
+import Facilities from '@/components/Facilities';
+import FitnessCalculators from '@/components/FitnessCalculators';
 import Trainers from '@/components/Trainers';
 import ProgressStats from '@/components/ProgressStats';
 import Testimonials from '@/components/Testimonials';
@@ -29,7 +32,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-white text-slate-900 relative selection:bg-lime-400 selection:text-slate-950 overflow-x-hidden">
+    <main className="min-h-screen bg-white text-slate-900 relative selection:bg-[#3F87FF] selection:text-white overflow-x-hidden">
       {/* Navigation Header */}
       <Navbar onOpenBooking={handleOpenBooking} />
 
@@ -39,16 +42,25 @@ export default function Home() {
       {/* Angled Criss-Cross Marquee Banner */}
       <MarqueeBanner />
 
-      {/* About & Mission */}
+      {/* About Us & Mission / Vision (Empowering Lifestyle & Stats) */}
       <About onOpenBooking={handleOpenBooking} />
 
-      {/* Disciplines & Services — CTA #2: "Book free trial" */}
+      {/* Why Choose Us (4 Pillar Highlights & Trial Callout) */}
+      <WhyChooseUs onOpenBooking={handleOpenBooking} />
+
+      {/* All Disciplines & Services (Weight, Cardio, Functional, Yoga, Zumba, Pilates, Taekwondo) */}
       <Programs onOpenBooking={handleOpenBooking} />
 
-      {/* Coaching Team */}
+      {/* Facility Highlights & Spaces (Strength Floor, Taekwondo Dojang, Yoga Studio, Showers) */}
+      <Facilities />
+
+      {/* Interactive Fitness Tools (Calorie Target Mifflin-St Jeor & WHO BMI Calculator) */}
+      <FitnessCalculators onOpenBooking={handleOpenBooking} />
+
+      {/* Coaching Team (Male & Female Coaches) */}
       <Trainers />
 
-      {/* Progress & Google Rating Stats */}
+      {/* Progress & Google Rating Stats Ribbon */}
       <ProgressStats />
 
       {/* Community Testimonials & Reviews */}

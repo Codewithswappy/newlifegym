@@ -22,23 +22,23 @@ export default function FloatingCTA({ onOpenBooking }: FloatingCTAProps) {
     >
       {/* Small & Compact Badge (Hidden on mobile, visible on desktop) */}
       <div className="bg-white/95 backdrop-blur-md border border-slate-200/90 text-slate-900 text-[9px] uppercase font-bold tracking-wider px-2.5 py-1.5 rounded-full shadow-md hidden md:flex items-center gap-1.5 select-none">
-        <div className="w-2 h-2 animate-pulse rounded-full bg-lime-600 stroke-none shrink-0" />
+        <div className="w-2 h-2 animate-pulse rounded-full bg-[#3F87FF] stroke-none shrink-0" />
         <span>Chat on WhatsApp</span>
       </div>
 
-      {/* Lime/Green Circular Floating Action Bubble */}
+      {/* Floating Action Bubble in #3F87FF with exact inner border */}
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="relative w-12 h-12 sm:w-14 sm:h-14 bg-lime-400 hover:bg-lime-300 text-slate-950 rounded-full flex items-center justify-center shadow-xl shadow-lime-500/25 hover:scale-110 active:scale-95 transition-all group"
-        aria-label="Chat on WhatsApp"
+        className="relative w-12 h-12 sm:w-14 sm:h-14 bg-[#3F87FF] hover:bg-[#2C7AF5] text-white rounded-full flex items-center justify-center border-[2.5px] border-[#1E66E2] hover:border-[#1758CA] shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.38)] hover:shadow-[inset_0_0_0_2px_rgba(255,255,255,0.6)] hover:scale-105 active:scale-95 transition-all group cursor-pointer"
+        aria-label="Chat on WhatsApp with Revamp Fitness"
       >
         {/* Speech Bubble Icon */}
-        <MessageSquare className="w-6 h-6 sm:w-7 sm:h-7 fill-slate-950 stroke-none" />
+        <MessageSquare className="w-6 h-6 sm:w-7 sm:h-7 fill-white stroke-none" />
         
         {/* Notification Indicator Dot */}
-        <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-emerald-500 border-2  border-white rounded-full" />
+        <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-emerald-500 border-2 border-white rounded-full" />
       </a>
     </motion.div>
   );

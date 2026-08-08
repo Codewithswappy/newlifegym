@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { TRANSFORMATIONS } from '@/lib/data';
-import { Sparkles, SlidersHorizontal } from 'lucide-react';
+import { SlidersHorizontal } from 'lucide-react';
 
 interface TransformationProps {
   onOpenBooking: (storyName?: string) => void;
@@ -21,10 +21,10 @@ export default function TransformationGallery({ onOpenBooking }: TransformationP
             Member Results
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Proven consistency & transformations
+            Proven Consistency & Transformations
           </h2>
           <p className="text-sm text-slate-600">
-            Real everyday members in Kamothe who followed structured lifting and nutrition guidelines.
+            Real everyday members in Kharghar who followed structured lifting and nutrition guidelines at Revamp Fitness.
           </p>
         </div>
 
@@ -46,7 +46,6 @@ export default function TransformationGallery({ onOpenBooking }: TransformationP
 
           <div className="relative h-72 sm:h-[380px] w-full rounded-xl overflow-hidden select-none border border-slate-300">
             {/* After Image */}
-            {/* TODO: PRIORITY — Replace with real member transformation after photo */}
             <Image
               src={TRANSFORMATIONS[0].afterImg}
               alt="After Transformation"
@@ -62,7 +61,6 @@ export default function TransformationGallery({ onOpenBooking }: TransformationP
               className="absolute inset-0 overflow-hidden"
               style={{ width: `${sliderPos}%` }}
             >
-              {/* TODO: PRIORITY — Replace with real member transformation before photo */}
               <Image
                 src={TRANSFORMATIONS[0].beforeImg}
                 alt="Before Transformation"
@@ -98,7 +96,6 @@ export default function TransformationGallery({ onOpenBooking }: TransformationP
 
           <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs border-t border-slate-200/80 pt-3">
             <div>
-              {/* TODO: Replace with real member transformation details */}
               <span className="font-extrabold text-slate-900">{TRANSFORMATIONS[0].name}</span>
               <span className="text-lime-700 font-bold ml-2">({TRANSFORMATIONS[0].stats})</span>
             </div>

@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Dumbbell, ArrowRight } from 'lucide-react';
-import { NAV_LINKS, GYM_DETAILS } from '@/lib/data';
+import { Menu, X, ArrowRight } from 'lucide-react';
+import { NAV_LINKS } from '@/lib/data';
 
 interface NavbarProps {
   onOpenBooking: (planName?: string) => void;
@@ -13,7 +13,6 @@ interface NavbarProps {
 export default function Navbar({ onOpenBooking }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [logoError, setLogoError] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,73 +24,63 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/80 py-3 shadow-xs'
-          : 'bg-white/80 backdrop-blur-xs border-b border-slate-100 py-4'
+          ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/80 py-2.5 shadow-sm'
+          : 'bg-transparent border-b border-transparent py-4'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-        {/* Brand Logo */}
-        <a href="#hero" className="flex items-center gap-2.5 group">
-          {!logoError ? (
-            <div className="relative h-11 sm:h-13 w-auto flex items-center">
-              <Image
-                src="/logo.png"
-                alt={GYM_DETAILS.name}
-                width={160}
-                height={52}
-                className="h-11 sm:h-13 w-auto object-contain transition-transform group-hover:scale-105"
-                onError={() => setLogoError(true)}
-                priority
-              />
-            </div>
-          ) : (
-            <div className="flex items-center gap-2.5">
-              <div className="w-10 h-10 bg-lime-400 text-slate-950 font-black rounded-xl flex items-center justify-center shadow-xs">
-                <Dumbbell className="w-5 h-5 stroke-[2.5]" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-base sm:text-lg font-black tracking-tight text-slate-900 leading-none">
-                  NEW LIFE
-                </span>
-                <span className="text-[10px] font-extrabold text-lime-700 uppercase tracking-widest leading-tight">
-                  FITNESS
-                </span>
-              </div>
-            </div>
-          )}
+        {/* Official Brand Logo from /logo.png + Brand Typography */}
+        <a href="#hero" className="flex items-center gap-2.5 group select-none shrink-0">
+          <div className="relative h-10 w-12 sm:h-11 sm:w-14 shrink-0 transition-transform group-hover:scale-105">
+            <Image
+              src="/logo.png"
+              alt="Revamp Fitness Logo Emblem"
+              fill
+              className="object-contain object-center"
+              priority
+              sizes="60px"
+            />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-lg sm:text-xl font-black tracking-tighter text-slate-900 leading-none">
+              REVAMP
+            </span>
+            <span className="text-[10px] font-extrabold text-[#3F87FF] uppercase tracking-widest leading-tight">
+              FITNESS
+            </span>
+          </div>
         </a>
 
-        {/* Minimal Navigation Links */}
+        {/* Minimal Navigation Links (Centered on Desktop) */}
         <nav className="hidden md:flex items-center gap-6">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-xs font-semibold text-slate-600 hover:text-slate-900 transition-colors"
+              className="text-xs font-bold text-slate-700 hover:text-[#3F87FF] transition-colors"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        {/* Right CTA Button */}
-        <div className="hidden sm:flex items-center gap-3">
+        {/* Right Actions Group: CTA Button + Mobile Hamburger */}
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          {/* CTA Button with Exact Inner Border & Hover Effect */}
           <button
             onClick={() => onOpenBooking('Book free trial')}
-            className="px-4 py-2 bg-lime-500 hover:bg-lime-400 text-slate-950 font-bold rounded-lg text-xs tracking-wide transition-all shadow-xs flex items-center gap-1.5 cursor-pointer"
+            className="hidden sm:inline-flex px-5 py-2.5 bg-[#3F87FF] hover:bg-[#2C7AF5] text-white font-bold rounded-full text-xs tracking-wide transition-all border-[2.5px] border-[#1E66E2] hover:border-[#1758CA] shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.38)] hover:shadow-[inset_0_0_0_2px_rgba(255,255,255,0.6)] items-center gap-1.5 cursor-pointer active:scale-95 select-none shrink-0"
           >
             <span>Book free trial</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
-        </div>
 
-        {/* Mobile Toggle */}
-        <div className="flex items-center gap-2 md:hidden">
+          {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-slate-700 rounded-lg hover:bg-slate-100 transition-colors"
+            className="p-2 text-slate-800 hover:text-slate-950 rounded-xl bg-white/80 backdrop-blur-xs hover:bg-white border border-slate-200/80 transition-colors md:hidden cursor-pointer flex items-center justify-center shrink-0 shadow-2xs"
             aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -106,7 +95,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-slate-200"
+            className="md:hidden bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xl"
           >
             <div className="px-4 py-4 space-y-2">
               {NAV_LINKS.map((link) => (
@@ -114,7 +103,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block py-2 text-sm font-semibold text-slate-700 hover:text-slate-900"
+                  className="block py-2 text-sm font-semibold text-slate-700 hover:text-[#3F87FF]"
                 >
                   {link.label}
                 </a>
@@ -125,7 +114,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
                     setMobileMenuOpen(false);
                     onOpenBooking('Book free trial');
                   }}
-                  className="w-full py-2.5 bg-lime-500 text-slate-950 font-bold rounded-lg text-xs text-center"
+                  className="w-full py-3 bg-[#3F87FF] hover:bg-[#2C7AF5] text-white font-bold rounded-full text-xs text-center border-[2.5px] border-[#1E66E2] shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.38)] cursor-pointer"
                 >
                   Book free trial
                 </button>

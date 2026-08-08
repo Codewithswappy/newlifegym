@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
+import { GYM_DETAILS } from '@/lib/data';
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -16,23 +17,26 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'New Life Gym & Fitness | Premium Local Fitness Center & Personal Training',
-  description: 'Join New Life Gym — the ultimate local fitness club featuring certified trainers, state-of-the-art strength & cardio equipment, personalized workout plans, and a vibrant community. Book your free 3-day trial today!',
+  metadataBase: new URL('https://revampfitness.in'),
+  title: 'Revamp Fitness | Premium Gym & Fitness Center in Sector 20 Kharghar, Navi Mumbai',
+  description: 'Join Revamp Fitness at Mita Heights, Sector 20 Kharghar. Featuring certified coaches, Olympic strength equipment, cardio deck, functional training, and clean shower amenities. Claim your free trial pass today!',
   keywords: [
-    'gym near me',
-    'fitness center',
-    'personal trainer',
-    'weight loss gym',
-    'bodybuilding gym',
-    'crossfit fitness',
-    'women fitness area',
-    'air conditioned gym',
-    'free gym trial',
-    'New Life Gym'
+    'Revamp Fitness',
+    'Revamp Fitness Kharghar',
+    'gym in Kharghar',
+    'gym Sector 20 Kharghar',
+    'fitness center Kharghar',
+    'gym near Central Park Kharghar',
+    'best gym in Navi Mumbai',
+    'personal trainer Kharghar',
+    'unisex gym Kharghar',
+    'bodybuilding gym Kharghar',
+    'crossfit Kharghar',
+    'free gym trial Kharghar'
   ],
-  authors: [{ name: 'New Life Fitness Center' }],
-  creator: 'New Life Fitness',
-  publisher: 'New Life Gym',
+  authors: [{ name: 'Revamp Fitness' }],
+  creator: 'Revamp Fitness',
+  publisher: 'Revamp Fitness LLP',
   robots: {
     index: true,
     follow: true,
@@ -46,29 +50,29 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'en_US',
-    url: 'https://newlifegym.com',
-    title: 'New Life Gym & Fitness | Build Your Strongest Self',
-    description: 'Transform your body with expert coaching, modern equipment, and flexible memberships. Claim your free trial today!',
-    siteName: 'New Life Gym',
+    locale: 'en_IN',
+    url: 'https://revampfitness.in',
+    title: 'Revamp Fitness | Build Your Strongest Self in Kharghar',
+    description: 'Transform your body with expert coaches, modern equipment, and flexible memberships at Sector 20 Kharghar. Claim your free trial today!',
+    siteName: 'Revamp Fitness',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop',
+        url: '/image1.jpg',
         width: 1200,
         height: 630,
-        alt: 'New Life Gym Interior & Workout Area',
+        alt: 'Revamp Fitness Kharghar Gym Floor',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'New Life Gym & Fitness | Premium Local Gym',
-    description: 'Results-driven gym with certified trainers and modern strength equipment. Free trial available!',
-    images: ['https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop'],
+    title: 'Revamp Fitness | Premium Gym in Sector 20 Kharghar',
+    description: 'Results-driven fitness hub with certified trainers, strength equipment, and functional turf in Kharghar. Free trial available!',
+    images: ['/image1.jpg'],
   },
   icons: {
-    icon: '/logo.png',
-    apple: '/logo.png',
+    icon: '/favicon.ico',
+    apple: '/favicon.ico',
   },
 };
 
@@ -80,42 +84,43 @@ export default function RootLayout({
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ExerciseGym',
-    name: 'New Life Fitness',
+    name: 'Revamp Fitness',
+    legalName: 'Revamp Fitness LLP',
     image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop',
-    '@id': 'https://newlifefitness.com',
-    url: 'https://newlifefitness.com',
-    telephone: '+91-8108800629',
-    priceRange: '$$',
+    '@id': 'https://revampfitness.in',
+    url: 'https://revampfitness.in',
+    telephone: GYM_DETAILS.phone,
+    priceRange: '₹₹',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '1st Floor, CHS, Office No. 1 to 5, Plot No. 4, Sector 24, Kamothe',
-      addressLocality: 'Panvel',
+      streetAddress: 'Shop No. 7, 1st Floor, Mita Heights, Plot No. 51B, Near Central Park Metro Road, Sector 20, Kharghar',
+      addressLocality: 'Kharghar, Navi Mumbai',
       addressRegion: 'Maharashtra',
-      postalCode: '410209',
+      postalCode: '410210',
       addressCountry: 'IN',
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 19.0307996,
-      longitude: 73.0905473,
+      latitude: GYM_DETAILS.coordinates.latitude,
+      longitude: GYM_DETAILS.coordinates.longitude,
     },
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-        opens: '06:00',
+        opens: '05:00',
         closes: '23:00',
       },
       {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: 'Sunday',
-        opens: '18:00',
-        closes: '22:00',
+        opens: '08:00',
+        closes: '13:00',
       },
     ],
     sameAs: [
-      'https://facebook.com/newlifefitness',
-      'https://instagram.com/newlifefitness',
+      'https://maps.app.goo.gl/A5J7zQfssK1nzNVS9',
+      'https://instagram.com/revampfitness',
     ],
   };
 
@@ -127,7 +132,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-white text-zinc-900 antialiased font-sans selection:bg-lime-400 selection:text-zinc-950">
+      <body className="bg-white text-zinc-900 antialiased font-sans selection:bg-[#3F87FF] selection:text-white">
         {children}
       </body>
     </html>

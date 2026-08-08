@@ -10,15 +10,15 @@ interface ContactProps {
 }
 
 const TIMING_OPTIONS = [
-  'Morning (6 AM - 11 AM)',
-  'Afternoon (11 AM - 4 PM)',
+  'Morning (5 AM - 10 AM)',
+  'Afternoon (10 AM - 4 PM)',
   'Evening (4 PM - 11 PM)',
 ];
 
 export default function Contact({ onOpenBooking }: ContactProps) {
   const [formName, setFormName] = useState('');
   const [formPhone, setFormPhone] = useState('');
-  const [formTiming, setFormTiming] = useState('Morning (6 AM - 11 AM)');
+  const [formTiming, setFormTiming] = useState('Morning (5 AM - 10 AM)');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSent, setIsSent] = useState(false);
 
@@ -26,7 +26,7 @@ export default function Contact({ onOpenBooking }: ContactProps) {
     e.preventDefault();
     if (!formName || !formPhone) return;
 
-    const message = `Hello New Life Fitness!%0A%0AName: ${encodeURIComponent(formName)}%0APhone: ${encodeURIComponent(formPhone)}%0APferred Timing: ${encodeURIComponent(formTiming)}%0A%0AI would like to book a free walk-in trial pass at your Sector 24 Kamothe location!`;
+    const message = `Hello Revamp Fitness!%0A%0AName: ${encodeURIComponent(formName)}%0APhone: ${encodeURIComponent(formPhone)}%0APreferred Timing: ${encodeURIComponent(formTiming)}%0A%0AI would like to book a free walk-in trial pass at your Mita Heights, Sector 20 Kharghar location!`;
     const whatsappUrl = `https://wa.me/${GYM_DETAILS.whatsapp.replace(/[^0-9]/g, '')}?text=${message}`;
 
     setIsSent(true);
@@ -43,14 +43,14 @@ export default function Contact({ onOpenBooking }: ContactProps) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="max-w-xl space-y-2 mb-12">
-          <span className="text-xs font-bold uppercase tracking-widest text-lime-700 bg-lime-100 px-3 py-1 rounded-full border border-lime-200 inline-block">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#1D4ED8] bg-blue-50 px-3 py-1 rounded-full border border-blue-200 inline-block">
             Visit & Contact
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight uppercase">
-            Location & Hours
+            Location & <span className="text-[#3F87FF]">Hours</span>
           </h2>
           <p className="text-xs text-slate-600 leading-relaxed">
-            Stop by for a free walk-in tour anytime during operational hours.
+            Stop by for a free walk-in tour at Mita Heights anytime during operational hours.
           </p>
         </div>
 
@@ -59,12 +59,12 @@ export default function Contact({ onOpenBooking }: ContactProps) {
           {/* Left Column: Location Cards & Light Mode Form */}
           <div className="lg:col-span-6 space-y-6 flex flex-col justify-between">
             
-            {/* Address & Hours Info Card (Light Mode) */}
+            {/* Address & Hours Info Card */}
             <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/90 space-y-5 text-xs shadow-xs">
               {/* Address */}
               <div className="flex items-start gap-3">
                 <div className="p-2.5 rounded-xl bg-white border border-slate-200 shrink-0 shadow-2xs">
-                  <MapPin className="w-4 h-4 text-lime-600" />
+                  <MapPin className="w-4 h-4 text-[#3F87FF]" />
                 </div>
                 <div>
                   <div className="font-extrabold text-slate-900 uppercase tracking-wider text-xs">Physical Address</div>
@@ -76,13 +76,13 @@ export default function Contact({ onOpenBooking }: ContactProps) {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3.5 border-t border-slate-200/80">
                 <div className="flex items-start gap-3">
                   <div className="p-2.5 rounded-xl bg-white border border-slate-200 shrink-0 shadow-2xs">
-                    <Phone className="w-4 h-4 text-lime-600" />
+                    <Phone className="w-4 h-4 text-[#3F87FF]" />
                   </div>
                   <div>
                     <div className="font-extrabold text-slate-900 uppercase tracking-wider text-xs">Phone Call</div>
                     <a
-                      href={`tel:${GYM_DETAILS.phone.replace(/[^0-9+]/g, '')}`}
-                      className="text-slate-800 hover:text-lime-700 font-bold mt-0.5 inline-block"
+                      href={`tel:${GYM_DETAILS.phoneRaw}`}
+                      className="text-slate-800 hover:text-[#1D4ED8] font-bold mt-0.5 inline-block"
                     >
                       {GYM_DETAILS.phone}
                     </a>
@@ -91,7 +91,7 @@ export default function Contact({ onOpenBooking }: ContactProps) {
 
                 <div className="flex items-start gap-3">
                   <div className="p-2.5 rounded-xl bg-white border border-slate-200 shrink-0 shadow-2xs">
-                    <MessageSquare className="w-4 h-4 text-lime-600" />
+                    <MessageSquare className="w-4 h-4 text-[#3F87FF]" />
                   </div>
                   <div>
                     <div className="font-extrabold text-slate-900 uppercase tracking-wider text-xs">WhatsApp Direct</div>
@@ -99,7 +99,7 @@ export default function Contact({ onOpenBooking }: ContactProps) {
                       href={`https://wa.me/${GYM_DETAILS.whatsapp.replace(/[^0-9]/g, '')}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-lime-700 hover:underline font-bold mt-0.5 inline-block"
+                      className="text-[#1D4ED8] hover:underline font-bold mt-0.5 inline-block"
                     >
                       Chat on WhatsApp →
                     </a>
@@ -110,7 +110,7 @@ export default function Contact({ onOpenBooking }: ContactProps) {
               {/* Operating Hours */}
               <div className="flex items-start gap-3 pt-3.5 border-t border-slate-200/80">
                 <div className="p-2.5 rounded-xl bg-white border border-slate-200 shrink-0 shadow-2xs">
-                  <Clock className="w-4 h-4 text-lime-600" />
+                  <Clock className="w-4 h-4 text-[#3F87FF]" />
                 </div>
                 <div>
                   <div className="font-extrabold text-slate-900 uppercase tracking-wider text-xs">Operational Hours</div>
@@ -120,14 +120,14 @@ export default function Contact({ onOpenBooking }: ContactProps) {
               </div>
             </div>
 
-            {/* Quick Walk-In Form (100% LIGHT MODE — NO DARK COLORS) */}
+            {/* Quick Walk-In Form with exact Button */}
             <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/90 space-y-4 shadow-xs">
               <div>
                 <h3 className="text-base font-extrabold uppercase tracking-wide text-slate-900">
                   Book Free Walk-In Pass
                 </h3>
                 <p className="text-xs text-slate-500 mt-0.5 font-medium">
-                  Get instant trial pass sent directly to your WhatsApp.
+                  Get instant trial pass confirmation sent directly to your WhatsApp.
                 </p>
               </div>
 
@@ -141,7 +141,7 @@ export default function Contact({ onOpenBooking }: ContactProps) {
                       placeholder="Your Name"
                       value={formName}
                       onChange={(e) => setFormName(e.target.value)}
-                      className="w-full bg-white border border-slate-200/90 rounded-xl pl-10 pr-3.5 py-3 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-lime-500 shadow-2xs"
+                      className="w-full bg-white border border-slate-200/90 rounded-xl pl-10 pr-3.5 py-3 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#3F87FF] shadow-2xs"
                     />
                   </div>
 
@@ -153,20 +153,20 @@ export default function Contact({ onOpenBooking }: ContactProps) {
                       placeholder="WhatsApp Number"
                       value={formPhone}
                       onChange={(e) => setFormPhone(e.target.value)}
-                      className="w-full bg-white border border-slate-200/90 rounded-xl pl-10 pr-3.5 py-3 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-lime-500 shadow-2xs"
+                      className="w-full bg-white border border-slate-200/90 rounded-xl pl-10 pr-3.5 py-3 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#3F87FF] shadow-2xs"
                     />
                   </div>
                 </div>
 
-                {/* Custom Ultra-Clean Animated Dropdown (NO UGLY BLUE SELECT) */}
+                {/* Custom Animated Dropdown */}
                 <div className="relative">
                   <button
                     type="button"
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="w-full bg-white border border-slate-200/90 rounded-xl px-4 py-3 text-xs text-slate-900 flex items-center justify-between font-semibold focus:outline-none focus:border-lime-500 shadow-2xs cursor-pointer select-none"
+                    className="w-full bg-white border border-slate-200/90 rounded-xl px-4 py-3 text-xs text-slate-900 flex items-center justify-between font-semibold focus:outline-none focus:border-[#3F87FF] shadow-2xs cursor-pointer select-none"
                   >
                     <span>{formTiming}</span>
-                    <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180 text-lime-600' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180 text-[#3F87FF]' : ''}`} />
                   </button>
 
                   <AnimatePresence>
@@ -189,11 +189,11 @@ export default function Contact({ onOpenBooking }: ContactProps) {
                                 setIsDropdownOpen(false);
                               }}
                               className={`w-full text-left px-3.5 py-2.5 rounded-lg text-xs font-semibold flex items-center justify-between transition-colors cursor-pointer ${
-                                isSelected ? 'bg-lime-50 text-slate-950 font-bold' : 'hover:bg-slate-50 text-slate-700'
+                                isSelected ? 'bg-blue-50 text-[#1D4ED8] font-bold' : 'hover:bg-slate-50 text-slate-700'
                               }`}
                             >
                               <span>{option}</span>
-                              {isSelected && <Check className="w-3.5 h-3.5 text-lime-600" />}
+                              {isSelected && <Check className="w-3.5 h-3.5 text-[#3F87FF]" />}
                             </button>
                           );
                         })}
@@ -205,27 +205,27 @@ export default function Contact({ onOpenBooking }: ContactProps) {
                 <button
                   type="submit"
                   disabled={isSent}
-                  className="w-full py-3.5 px-4 bg-lime-400 hover:bg-lime-300 text-slate-950 font-black rounded-xl text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs hover:shadow-md"
+                  className="w-full py-3.5 px-4 bg-[#3F87FF] hover:bg-[#2C7AF5] text-white font-bold rounded-full text-xs uppercase tracking-wider border-[2.5px] border-[#1E66E2] hover:border-[#1758CA] shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.38)] hover:shadow-[inset_0_0_0_2px_rgba(255,255,255,0.6)] transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95 select-none"
                 >
-                  <MessageSquare className="w-4 h-4 fill-slate-950 stroke-none shrink-0" />
+                  <MessageSquare className="w-4 h-4 fill-white stroke-none shrink-0" />
                   <span>{isSent ? 'Redirecting to WhatsApp...' : 'Get Trial Pass on WhatsApp'}</span>
                 </button>
               </form>
             </div>
           </div>
 
-          {/* Right Column: Google Maps Embed (Exact Pinpoint Location) */}
+          {/* Right Column: Google Maps Embed */}
           <div className="lg:col-span-6 rounded-md overflow-hidden border border-slate-200 bg-slate-100 min-h-[440px] relative shadow-xs flex flex-col">
             <div className="p-3 bg-white border-b border-slate-200/80 flex items-center justify-between text-xs font-bold text-slate-900">
-              <span className="flex items-center gap-1.5">
-                <MapPin className="w-4 h-4 text-lime-600" />
-                <span>New Life Fitness — Sector 24, Kamothe</span>
+              <span className="flex items-center gap-1.5 truncate">
+                <MapPin className="w-4 h-4 text-[#3F87FF] shrink-0" />
+                <span className="truncate">Revamp Fitness — Sector 20, Kharghar</span>
               </span>
               <a
-                href="https://maps.google.com/?q=New+Life+Fitness+Sector+24+Kamothe+Panvel"
+                href={GYM_DETAILS.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lime-700 hover:underline inline-flex items-center gap-1 text-[11px]"
+                className="text-[#1D4ED8] hover:underline inline-flex items-center gap-1 text-[11px] shrink-0"
               >
                 <span>Open in Maps</span>
                 <ExternalLink className="w-3 h-3" />
@@ -233,8 +233,8 @@ export default function Contact({ onOpenBooking }: ContactProps) {
             </div>
 
             <iframe
-              title="New Life Fitness Location Map Pinpoint"
-              src="https://maps.google.com/maps?q=New+Life+Fitness+Sector+24+Kamothe+Panvel+Maharashtra&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              title="Revamp Fitness Location Map Pinpoint"
+              src="https://maps.google.com/maps?q=Revamp+Fitness+Mita+Heights+Plot+51B+Sector+20+Kharghar+Navi+Mumbai+410210&t=&z=16&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}

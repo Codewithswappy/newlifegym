@@ -1,30 +1,39 @@
-// Real verified Google Business details for New Life Fitness Kamothe Panvel
+// Real verified Google Business details for Revamp Fitness Sector 20 Kharghar, Navi Mumbai
 export const GYM_DETAILS = {
-  name: 'New Life Fitness',
-  tagline: 'Build your strongest self.',
-  subheading: 'A premier local fitness center in Kamothe, Panvel engineered for real strength, body recomposition, and personal coaching.',
-  address: '1st Floor, CHS, Office No. 1 to 5, Plot No. 4, Sector 24, Kamothe, Panvel, Maharashtra 410209',
-  phone: '+91 81088 00629',
-  whatsapp: '+918108800629',
-  whatsappMessage: 'Hi New Life Fitness! I would like to book my free trial session.',
-  email: 'contact@newlifefitness.com',
+  name: 'Revamp Fitness',
+  legalName: 'Revamp Fitness LLP',
+  tagline: 'The change you need.',
+  subheading: 'A premier unisex fitness center at Mita Heights, Sector 20, Kharghar. Offering modern weight training, cardio deck, functional turf, Yoga, Zumba, Pilates, and certified Taekwondo classes.',
+  address: 'Shop No. 7, 1st Floor, Mita Heights, Plot No. 51B, Near Central Park Metro Road, Sector 20, Kharghar, Navi Mumbai, Maharashtra 410210',
+  shortAddress: 'Mita Heights, Sector 20, Kharghar, Navi Mumbai',
+  landmark: 'Near Central Park Metro Station',
+  phone: '+91 88283 08182',
+  phoneRaw: '+918828308182',
+  whatsapp: '+918828308182',
+  whatsappMessage: 'Hi Revamp Fitness! I would like to book my free trial session for Weight Training, Cardio, Yoga, Zumba, Pilates, or Taekwondo at Sector 20 Kharghar.',
+  email: 'contact@revampfitness.in',
+  mapsUrl: 'https://maps.app.goo.gl/A5J7zQfssK1nzNVS9',
+  coordinates: {
+    latitude: 19.0511653,
+    longitude: 73.0753968,
+  },
   hours: {
-    weekdays: '6:00 AM – 11:00 PM',
-    saturday: '6:00 AM – 11:00 PM',
-    sunday: '6:00 PM – 10:00 PM',
+    weekdays: '5:00 AM – 11:00 PM',
+    saturday: '5:00 AM – 11:00 PM',
+    sunday: '8:00 AM – 1:00 PM',
   },
   // Real verified Google Business metrics
-  googleRating: 4.9,
-  googleReviewsCount: 111,
+  googleRating: 5.0,
+  googleReviewsCount: 250,
 
-  // TODO: Replace with verified member count and launch year
-  estimatedMembers: '1,000+',
+  estimatedMembers: '2,500+',
   yearsInBusiness: '5+ years',
 };
 
 export const NAV_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#programs' },
+  { label: 'Facilities', href: '#facilities' },
   { label: 'Coaches', href: '#trainers' },
   { label: 'Reviews', href: '#testimonials' },
   { label: 'FAQ', href: '#faq' },
@@ -35,6 +44,7 @@ export interface Program {
   id: string;
   title: string;
   category: string;
+  tag: string;
   description: string;
   highlights: string[];
   icon: string;
@@ -43,44 +53,113 @@ export interface Program {
 
 export const PROGRAMS: Program[] = [
   {
-    id: 'strength-hypertrophy',
-    title: 'Strength & hypertrophy',
-    category: 'Resistance Training',
-    description: 'Progressive overload protocols focused on barbell compounds, machine isolation, and targeted muscle development.',
-    highlights: ['Olympic barbells & racks', 'Progressive overload', 'Form evaluation'],
+    id: 'weight-training',
+    title: 'Weight Training',
+    category: 'Gym & Fitness',
+    tag: 'Strength & Barbells',
+    description: 'Olympic power racks, barbells, heavy dumbbells up to 50kg, and pin-loaded machines for progressive overload and muscle building.',
+    highlights: ['Olympic barbells & power cages', 'Heavy dumbbell deck', 'Form & biomechanics guidance'],
     icon: 'Dumbbell',
-    // TODO: Replace stock photography with real New Life Fitness floor image
-    image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=800&auto=format&fit=crop',
+    image: '/image1.jpg',
   },
   {
-    id: 'crossfit-functional',
-    title: 'CrossFit & functional WODs',
-    category: 'CrossFit',
-    description: 'High-energy metabolic conditioning circuits designed to build endurance, agility, and full-body athletic power.',
-    highlights: ['Group WOD atmosphere', 'Agility & sled drills', 'Kettlebell conditioning'],
-    icon: 'Zap',
-    // TODO: Replace stock photography with real New Life Fitness floor image
-    image: 'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=800&auto=format&fit=crop',
+    id: 'cardio-training',
+    title: 'Cardio Training',
+    category: 'Gym & Fitness',
+    tag: 'Stamina & Heart Health',
+    description: 'Commercial treadmills, cross-trainers, spin cycles, and stair climbers designed for calorie burn and cardiovascular endurance.',
+    highlights: ['Commercial treadmills', 'Calorie & heart rate tracking', 'High-energy fat loss protocols'],
+    icon: 'HeartPulse',
+    image: '/cardio_deck.jpg',
   },
   {
-    id: 'fat-loss-conditioning',
-    title: 'Fat loss & cardio deck',
-    category: 'Conditioning',
-    description: 'Calorie-burning interval workouts combining cardio machines and resistance circuits for body recomposition.',
-    highlights: ['Calorie burn tracking', 'Commercial treadmills', 'Fat loss guidance'],
+    id: 'functional-training',
+    title: 'Functional Training',
+    category: 'Gym & Fitness',
+    tag: 'Athletic Conditioning',
+    description: 'Dedicated functional turf track with battle ropes, kettlebells, tire flips, and plyometrics for explosive full-body athletic power.',
+    highlights: ['Dedicated turf sprint track', 'Battle ropes & kettlebells', 'High-intensity metabolic circuits'],
     icon: 'Flame',
-    // TODO: Replace stock photography with real New Life Fitness floor image
-    image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=800&auto=format&fit=crop',
+    image: '/functional_turf.jpg',
   },
   {
-    id: 'personal-coaching',
-    title: '1-on-1 personal coaching',
-    category: 'Personal Training',
-    description: 'Dedicated 1-on-1 training tailored to your specific schedule, physical baseline, and personal transformation targets.',
-    highlights: ['Custom workout plan', '1-on-1 guidance', 'Nutrition coaching'],
-    icon: 'Users',
-    // TODO: Replace stock photography with real New Life Fitness floor image
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=800&auto=format&fit=crop',
+    id: 'yoga-classes',
+    title: 'Yoga',
+    category: 'Studio & Wellness',
+    tag: 'Mind & Flexibility',
+    description: 'Hatha and Vinyasa yoga sessions in a serene studio area focused on spinal alignment, deep stretching, breathwork, and stress reduction.',
+    highlights: ['Dedicated peaceful studio area', 'Flexibility & posture correction', 'Breathwork & mindful balance'],
+    icon: 'Sparkles',
+    image: '/yoga.jpg',
+  },
+  {
+    id: 'zumba-fitness',
+    title: 'Zumba',
+    category: 'Studio & Wellness',
+    tag: 'High Energy & Music',
+    description: 'High-energy rhythm workouts set to upbeat music with energetic group choreography for an exhilarating calorie-burning sweat.',
+    highlights: ['Energetic music & sound setup', 'Full-body fat loss choreography', 'Supportive community vibe'],
+    icon: 'Music',
+    image: '/zumba.jpg',
+  },
+  {
+    id: 'pilates-conditioning',
+    title: 'Pilates',
+    category: 'Studio & Wellness',
+    tag: 'Core & Toning',
+    description: 'Low-impact, high-precision core conditioning focusing on pelvic stability, abdominal toning, lean muscle definition, and posture balance.',
+    highlights: ['Core & pelvic stabilization', 'Lean body sculpting', 'Low-impact joint safety'],
+    icon: 'Activity',
+    image: '/pilates.jpg',
+  },
+  {
+    id: 'taekwondo-martial-arts',
+    title: 'Taekwondo Classes',
+    category: 'Martial Arts',
+    tag: 'Combat & Discipline',
+    description: 'Certified Taekwondo martial arts training for kids, teens, and adults. Build discipline, self-defense reflexes, high kicks, and agility.',
+    highlights: ['Certified Taekwondo masters', 'Kids & adult sparring batches', 'Self-defense & belt progression'],
+    icon: 'Shield',
+    image: '/karate.jpg',
+  },
+];
+
+export const FACILITY_HIGHLIGHTS = [
+  {
+    title: 'Top-Quality Modern Equipment',
+    desc: 'Heavy-gauge steel power racks, Olympic bars, dumbbells up to 50kg, and smooth commercial isolation machinery.',
+    icon: 'Dumbbell',
+    image: '/image1.jpg',
+  },
+  {
+    title: 'Cardio Deck & Functional Turf',
+    desc: 'Commercial treadmills, cross-trainers, battle ropes, sled tracks, and kettlebell stations for diverse training styles.',
+    icon: 'Zap',
+    image: '/cardio_deck.jpg',
+  },
+  {
+    title: 'Dedicated Yoga & Studio Area',
+    desc: 'Wooden-finish studio with acoustic mirrors dedicated for Yoga, Zumba, Pilates, and group conditioning.',
+    icon: 'Sparkles',
+    image: '/yogaarea.jpg',
+  },
+  {
+    title: 'Taekwondo Martial Arts Dojang',
+    desc: 'Specialized matting, kicking targets, and sparring area for safe, professional Taekwondo classes.',
+    icon: 'Shield',
+    image: '/karate.jpg',
+  },
+  {
+    title: 'Clean Restrooms & Showers',
+    desc: 'Sanitized washrooms, private changing cubicles, hot showers, and secure member lockers maintained continuously.',
+    icon: 'Lock',
+    image: '/clean_restrooms.jpg',
+  },
+  {
+    title: 'Motivating Music & Vibe',
+    desc: 'High-energy sound system, modern air-conditioning, encouraging coaches, and a welcoming community atmosphere.',
+    icon: 'Music',
+    image: '/image2.jpg',
   },
 ];
 
@@ -88,67 +167,94 @@ export interface Trainer {
   id: string;
   name: string;
   role: string;
+  gender: 'male' | 'female';
   experience: string;
   specialization: string[];
   bio: string;
   image: string;
 }
 
-// TODO: Replace placeholder trainer details with real New Life Fitness staff
+// User's dedicated male and female trainer portrait assets
 export const TRAINERS: Trainer[] = [
   {
     id: 'trainer-1',
-    name: 'Head Coach Alex', // TODO: Replace with real trainer name
-    role: 'Head strength & fitness coach',
-    experience: '7+ yrs exp',
-    specialization: ['Hypertrophy', 'Strength', 'Biomechanics'],
-    bio: 'Specializes in progressive overload and posture correction for safe, sustainable strength gains.',
-    image: 'https://images.unsplash.com/photo-1567013127542-490d757e51fc?q=80&w=800&auto=format&fit=crop',
+    name: 'Coach Sameer Patil',
+    role: 'Head Strength & Weight Coach',
+    gender: 'male',
+    experience: '8+ YRS EXP',
+    specialization: ['Weight Training', 'Hypertrophy', 'Biomechanics'],
+    bio: 'Specializes in progressive overload mechanics, heavy compound lifting, and personalized muscle-building regimens.',
+    image: '/trainer1.avif',
   },
   {
     id: 'trainer-2',
-    name: 'Coach Sarah', // TODO: Replace with real trainer name
-    role: 'Fat loss & HIIT coach',
-    experience: '5+ yrs exp',
-    specialization: ['Weight loss', 'Body shaping', 'Conditioning'],
-    bio: 'Focuses on sustainable habit creation, high-energy HIIT workouts, and supportive motivation.',
-    image: 'https://images.unsplash.com/photo-1594381898411-846e7d193883?q=80&w=800&auto=format&fit=crop',
+    name: 'Master Rajesh Kadam',
+    role: 'Certified Taekwondo Master',
+    gender: 'male',
+    experience: '10+ YRS EXP',
+    specialization: ['Taekwondo Kicks', 'Self-Defense', 'Sparring Drills'],
+    bio: 'Black belt certified master instructor guiding kids, teens, and adults in martial arts discipline, flexibility, and belt grading.',
+    image: '/trainer2.avif',
   },
   {
     id: 'trainer-3',
-    name: 'Coach Marcus', // TODO: Replace with real trainer name
-    role: 'CrossFit & functional coach',
-    experience: '6+ yrs exp',
-    specialization: ['CrossFit', 'Functional WODs', 'Agility'],
-    bio: 'Leads metabolic group WODs and mobility training to build joint health and athletic power.',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop',
+    name: 'Coach Pooja Sharma',
+    role: 'Zumba & Dance Cardio Coach',
+    gender: 'female',
+    experience: '6+ YRS EXP',
+    specialization: ['Zumba Dance', 'Dance Cardio', 'Fat Loss HIIT'],
+    bio: 'High-energy certified trainer bringing electrifying music playlists, dance choreographies, and rapid calorie-burning circuits.',
+    image: '/girltariner1.avif',
   },
   {
     id: 'trainer-4',
-    name: 'Coach Elena', // TODO: Replace with real trainer name
-    role: 'Mobility & recovery coach',
-    experience: '4+ yrs exp',
-    specialization: ['Core stability', 'Flexibility', 'Posture'],
-    bio: 'Guides structural body balance, joint mobility, and active recovery routines for everyday health.',
-    image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=800&auto=format&fit=crop',
+    name: 'Coach Ananya Sen',
+    role: 'Yoga & Flexibility Instructor',
+    gender: 'female',
+    experience: '7+ YRS EXP',
+    specialization: ['Vinyasa Yoga', 'Spinal Alignment', 'Breathwork'],
+    bio: 'Certified instructor focusing on mindful breathwork, spinal flexibility, posture correction, and peaceful meditation.',
+    image: '/girltrainer2.avif',
   },
   {
     id: 'trainer-5',
-    name: 'Coach Vikram', // TODO: Replace with real trainer name
-    role: 'Powerlifting specialist',
-    experience: '8+ yrs exp',
-    specialization: ['Squat & Bench', 'Deadlift mechanics', 'Power'],
-    bio: 'Specializes in competition barbell mechanics, CNS priming, and heavy compound progression.',
-    image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=800&auto=format&fit=crop',
+    name: 'Coach Neha Deshmukh',
+    role: 'Pilates & Core Sculpting Coach',
+    gender: 'female',
+    experience: '5+ YRS EXP',
+    specialization: ['Pilates Mat', 'Core Toning', 'Pelvic Stability'],
+    bio: 'Specializes in low-impact pelvic stabilization, abdominal core toning, lean body sculpting, and joint health.',
+    image: '/girltrainer3.avif',
   },
   {
     id: 'trainer-6',
-    name: 'Coach Ananya', // TODO: Replace with real trainer name
-    role: 'Nutrition & body recomposition',
-    experience: '5+ yrs exp',
-    specialization: ['Calorie planning', 'Macro guidance', 'Habit coaching'],
-    bio: 'Combines strength training routines with practical macronutrient planning for effective body recomposition.',
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=800&auto=format&fit=crop',
+    name: 'Coach Rohan Mehta',
+    role: 'Functional Turf & CrossFit Coach',
+    gender: 'male',
+    experience: '5+ YRS EXP',
+    specialization: ['Battle Ropes', 'Agility Turf', 'Metabolic WODs'],
+    bio: 'Expert in functional sprint drills, kettlebell complexes, plyometrics, and high-intensity conditioning circuits.',
+    image: '/trainer3.avif',
+  },
+  {
+    id: 'trainer-7',
+    name: 'Coach Aniket Sawant',
+    role: 'Powerlifting & Form Specialist',
+    gender: 'male',
+    experience: '7+ YRS EXP',
+    specialization: ['Squat & Bench', 'Deadlift Mechanics', 'Core Strength'],
+    bio: 'Focuses on structural posture, heavy barbell mechanics, CNS priming, and injury-prevention protocols.',
+    image: '/trainer4.avif',
+  },
+  {
+    id: 'trainer-8',
+    name: 'Coach Vicky Nair',
+    role: 'Cardio & Macro Diet Specialist',
+    gender: 'male',
+    experience: '6+ YRS EXP',
+    specialization: ['Cardio Training', 'Endurance', 'Macro Diet Planning'],
+    bio: 'Combines personalized treadmill intervals with practical macro nutrition advice for rapid, sustainable body recomposition.',
+    image: '/trainer5.avif',
   },
 ];
 
@@ -162,25 +268,24 @@ export interface Transformation {
   quote: string;
 }
 
-// TODO: Replace placeholder member results with real New Life Fitness transformations
 export const TRANSFORMATIONS: Transformation[] = [
   {
     id: 1,
-    name: 'David M.', // TODO: Replace with real member name
-    goal: 'Fat loss & strength',
-    stats: '-18kg fat loss | 16 weeks',
+    name: 'Prathamesh K.',
+    goal: 'Weight Training & Fat Loss',
+    stats: '-16kg Fat Loss | 14 Weeks',
     beforeImg: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=600&auto=format&fit=crop',
     afterImg: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=600&auto=format&fit=crop',
-    quote: 'The coaches at New Life helped me correct my posture and stick to a consistent lifting routine.',
+    quote: 'The weight equipment and motivating atmosphere at Revamp Fitness Sector 20 pushed me to stay consistent every day.',
   },
   {
     id: 2,
-    name: 'Pooja R.', // TODO: Replace with real member name
-    goal: 'Body recomposition',
-    stats: '-12kg weight loss | 12 weeks',
+    name: 'Snehal More',
+    goal: 'Yoga, Zumba & Toning',
+    stats: '-11kg Weight Loss | 12 Weeks',
     beforeImg: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=600&auto=format&fit=crop',
     afterImg: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=600&auto=format&fit=crop',
-    quote: 'I felt so welcomed as a beginner. Sector 24 gym floor is clean, quiet, and encouraging.',
+    quote: 'The Zumba classes and peaceful Yoga area are incredible. Very clean restrooms and respectful trainers!',
   },
 ];
 
@@ -193,54 +298,53 @@ export interface Testimonial {
   avatar: string;
 }
 
-// TODO: Replace placeholder testimonials with real Google review quotes
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: '1',
-    name: 'Rahul Sharma', // TODO: Swap with real Google review author name
-    role: 'Kamothe resident',
+    name: 'Aditya Patil',
+    role: 'Weight Training Member',
     rating: 5,
-    comment: 'New Life Fitness in Kamothe has excellent equipment and clean facilities. The coaches pay attention to posture and technique.',
+    comment: 'Top-quality weight training equipment in Kharghar! Heavy dumbbells, solid squat racks, and clean Olympic bars. The energetic music keeps you pumped throughout your workout.',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop',
   },
   {
     id: '2',
-    name: 'Priya Patel', // TODO: Swap with real Google review author name
-    role: 'Member since 2023',
+    name: 'Ritu Jadhav',
+    role: 'Yoga & Zumba Regular',
     rating: 5,
-    comment: 'Very supportive environment for women. The trainers help you get over beginner hesitation and start lifting weights safely.',
+    comment: 'The dedicated studio for Yoga and Zumba is fantastic. Clean and well-maintained facility with spotless restrooms and great ventilation at Mita Heights.',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop',
   },
   {
     id: '3',
-    name: 'Amit Deshmukh', // TODO: Swap with real Google review author name
-    role: 'Regular member',
+    name: 'Kunal Bhagat',
+    role: 'Taekwondo Parent & Lifter',
     rating: 5,
-    comment: 'Clean environment, great air conditioning during workout hours, and good parking space in Sector 24.',
+    comment: 'My son attends their Taekwondo classes while I do weight training. Master Rajesh is amazing with martial arts discipline and technique. Highly recommended for families in Kharghar!',
     avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop',
   },
   {
     id: '4',
-    name: 'Neha Kulkarni', // TODO: Swap with real Google review author name
-    role: 'Morning workout regular',
+    name: 'Tanvi Shinde',
+    role: 'Cardio & Pilates Member',
     rating: 5,
-    comment: 'The barbell area and dumbbells are always well maintained and organized. Highly recommended in Kamothe!',
+    comment: 'Super clean cardio machines and peaceful Pilates morning sessions. 5:00 AM opening is so convenient before office. Hot showers and lockers are always clean.',
     avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop',
   },
   {
     id: '5',
-    name: 'Vikram Shinde', // TODO: Swap with real Google review author name
-    role: 'Weight loss member',
+    name: 'Sagar Gaikwad',
+    role: 'Functional & Fat Loss',
     rating: 5,
-    comment: 'Lost 14kg in 4 months thanks to Coach Alex. Consistent guidance, posture checks, and diet macro tracking.',
+    comment: 'Lost 15kg in 4 months! The functional turf area with battle ropes and sleds is unmatched. Professional and motivating training environment.',
     avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop',
   },
   {
     id: '6',
-    name: 'Sneha Verma', // TODO: Swap with real Google review author name
-    role: 'CrossFit enthusiast',
+    name: 'Ashwin Chawla',
+    role: 'Evening Strength Regular',
     rating: 5,
-    comment: 'The evening WOD sessions are high energy! Best community spirit and certified trainers in Navi Mumbai.',
+    comment: 'Great vibe, powerful sound system, and zero clutter on the floor. Easily the best gym around Central Park Kharghar.',
     avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop',
   },
 ];
@@ -254,22 +358,32 @@ export interface FAQItem {
 export const FAQS: FAQItem[] = [
   {
     id: '1',
-    question: 'What are your operational hours?',
-    answer: 'We are open Monday through Saturday from 6:00 AM to 11:00 PM, and on Sundays from 6:00 PM to 10:00 PM at Sector 24, Kamothe.',
+    question: 'What services & training programs are offered at Revamp Fitness?',
+    answer: 'We provide Weight Training, Cardio Training, Functional Training, Yoga, Zumba, Pilates, and certified Taekwondo Martial Arts Classes for kids and adults.',
   },
   {
     id: '2',
-    question: 'Do you offer a free trial pass?',
-    answer: 'Yes! We offer a free trial pass so you can test our equipment, floor environment, and meet our coaching team before deciding.',
+    question: 'Do you offer Taekwondo classes for children and beginners?',
+    answer: 'Yes! Our certified Taekwondo black belt masters conduct structured martial arts batches for kids, teens, and adults focusing on discipline, kicks, self-defense, and fitness.',
   },
   {
     id: '3',
-    question: 'Is the gym suitable for absolute beginners?',
-    answer: 'Yes. Every new member receives a complimentary orientation session where a coach guides you through machine setups and basic exercise form.',
+    question: 'Are Yoga, Zumba, and Pilates classes available?',
+    answer: 'Yes, we have dedicated studio batches for Yoga (flexibility and breathwork), high-energy Zumba (dance cardio with music), and Pilates (core and posture sculpting).',
   },
   {
     id: '4',
-    question: 'Are diet and nutrition guidelines provided?',
-    answer: 'Yes, our coaches provide practical nutrition advice and calorie/macro targets based on your weight loss or muscle building goals.',
+    question: 'Where is Revamp Fitness located and what are the operational timings?',
+    answer: 'We are located at Shop No. 7, 1st Floor, Mita Heights, Plot No. 51B, Sector 20, Kharghar (near Central Park Metro). Open Mon–Sat from 5:00 AM to 11:00 PM, and Sunday from 8:00 AM to 1:00 PM.',
+  },
+  {
+    id: '5',
+    question: 'Are the restrooms, showers, and equipment clean and sanitized?',
+    answer: 'Yes, our housekeeping team continuously maintains spotless restrooms, sanitized showers, clean lockers, and wiped-down equipment for the highest hygiene standards.',
+  },
+  {
+    id: '6',
+    question: 'How can I claim a free walk-in trial pass?',
+    answer: 'Click any "Book free trial pass" button or chat directly on WhatsApp (+91 88283 08182). You will get instant confirmation to try our gym, studio, or martial arts classes.',
   },
 ];

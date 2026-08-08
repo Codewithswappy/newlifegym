@@ -7,9 +7,9 @@ export default function TrustBar() {
   const highlights = [
     { title: 'Certified trainers', icon: <ShieldCheck className="w-4 h-4 text-lime-600" /> },
     { title: 'Olympic barbells', icon: <Dumbbell className="w-4 h-4 text-lime-600" /> },
-    { title: 'CrossFit WOD area', icon: <Flame className="w-4 h-4 text-lime-600" /> },
+    { title: 'Functional turf', icon: <Flame className="w-4 h-4 text-lime-600" /> },
     { title: 'Clean lockers & showers', icon: <Lock className="w-4 h-4 text-lime-600" /> },
-    { title: 'Dedicated parking', icon: <Car className="w-4 h-4 text-lime-600" /> },
+    { title: 'Mita Heights parking', icon: <Car className="w-4 h-4 text-lime-600" /> },
     { title: 'Air conditioned', icon: <Snowflake className="w-4 h-4 text-lime-600" /> },
   ];
 

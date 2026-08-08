@@ -3,79 +3,74 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Dumbbell, Activity, Lock, Car, CheckCircle2 } from 'lucide-react';
+import { FACILITY_HIGHLIGHTS } from '@/lib/data';
+import { Dumbbell, Zap, Sparkles, Shield, Lock, Music } from 'lucide-react';
+
+const iconMap: Record<string, React.ReactNode> = {
+  Dumbbell: <Dumbbell className="w-5 h-5 text-white" />,
+  Zap: <Zap className="w-5 h-5 text-white" />,
+  Sparkles: <Sparkles className="w-5 h-5 text-white" />,
+  Shield: <Shield className="w-5 h-5 text-white" />,
+  Lock: <Lock className="w-5 h-5 text-white" />,
+  Music: <Music className="w-5 h-5 text-white" />,
+};
 
 export default function Facilities() {
-  const items = [
-    { title: 'Free weights & power racks', desc: 'Olympic barbells, dumbbells, power racks', icon: <Dumbbell className="w-4 h-4 text-lime-700" /> },
-    { title: 'Cardio & conditioning deck', desc: 'Commercial treadmills & cross-trainers', icon: <Activity className="w-4 h-4 text-lime-700" /> },
-    { title: 'Clean lockers & showers', desc: 'Private lockers and hot water showers', icon: <Lock className="w-4 h-4 text-lime-700" /> },
-    { title: 'Dedicated parking & AC', desc: 'Free parking and full climate control', icon: <Car className="w-4 h-4 text-lime-700" /> },
-  ];
-
   return (
     <section id="facilities" className="py-20 sm:py-28 bg-white border-b border-slate-100">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Visual Container */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-6 relative"
-          >
-            <div className="relative rounded-2xl overflow-hidden border border-slate-200 aspect-[4/3] shadow-xs group">
-              {/* TODO: PRIORITY — Replace with real photo of New Life Fitness strength floor */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-12">
+        {/* Header */}
+        <div className="space-y-2 max-w-xl">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#1D4ED8] bg-blue-50 px-3 py-1 rounded-full border border-blue-200/80 inline-block">
+            Amenities & Standards
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight uppercase">
+            Facility <span className="text-[#3F87FF]">Highlights & Spaces</span>
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Spacious air-conditioned floors, dedicated Taekwondo dojang, quiet yoga studio, and spotless washrooms.
+          </p>
+        </div>
+
+        {/* 6-Card Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {FACILITY_HIGHLIGHTS.map((item, idx) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.06, duration: 0.4 }}
+              className="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 hover:border-[#3F87FF]/80 shadow-xs hover:shadow-xl transition-all duration-300 min-h-[300px] flex flex-col justify-end p-5 select-none"
+            >
+              {/* Photo Background */}
               <Image
-                src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=800&auto=format&fit=crop"
-                alt="New Life Fitness Infrastructure"
+                src={item.image}
+                alt={item.title}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-80"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
-              
-              <div className="absolute bottom-4 left-4 right-4 p-3.5 bg-white/95 backdrop-blur-md rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-between text-xs font-bold text-slate-900">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-lime-600" />
-                  <span>Industrial equipment standard</span>
-                </span>
-                <span className="text-lime-700 font-extrabold">Sector 24, Kamothe</span>
-              </div>
-            </div>
-          </motion.div>
 
-          {/* Infrastructure Details */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="space-y-2">
-              <span className="text-xs font-bold uppercase tracking-widest text-lime-700 bg-lime-100 px-3 py-1 rounded-full border border-lime-200/80 inline-block">
-                Infrastructure
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                Built for heavy training and everyday comfort
-              </h2>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Pristine machinery, regular sanitation, continuous air circulation, and spacious floor layouts.
-              </p>
-            </div>
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/40 to-transparent" />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {items.map((item) => (
-                <div
-                  key={item.title}
-                  className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:border-lime-500/50 transition-all duration-300 shadow-xs"
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <div className="p-1.5 rounded-lg bg-lime-100 border border-lime-200/80 shrink-0">
-                      {item.icon}
-                    </div>
-                    <h3 className="text-xs font-bold text-slate-900">{item.title}</h3>
-                  </div>
-                  <p className="text-[11px] text-slate-500">{item.desc}</p>
+              {/* Content */}
+              <div className="relative z-10 text-white space-y-2">
+                <div className="w-9 h-9 rounded-xl bg-[#3F87FF] text-white flex items-center justify-center shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.38)] border border-[#1E66E2]">
+                  {iconMap[item.icon] || <Dumbbell className="w-5 h-5 text-white" />}
                 </div>
-              ))}
-            </div>
-          </div>
+
+                <h3 className="text-base font-black uppercase tracking-wide leading-tight group-hover:text-[#3F87FF] transition-colors">
+                  {item.title}
+                </h3>
+
+                <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                  {item.desc}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

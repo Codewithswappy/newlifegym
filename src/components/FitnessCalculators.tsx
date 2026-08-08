@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Flame, Scale, ArrowRight, Sparkles, ChevronDown, Check, Info, User, Activity } from 'lucide-react';
+import { Flame, Scale, ArrowRight, Check, Info, Activity } from 'lucide-react';
 
 interface FitnessCalculatorsProps {
   onOpenBooking: (planName?: string) => void;
@@ -139,15 +139,15 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
   const activeActivityObj = ACTIVITY_OPTIONS.find((a) => a.value === calActivity) || ACTIVITY_OPTIONS[2];
 
   return (
-    <section id="calculators" className="py-20 sm:py-28 bg-white border-b border-slate-100 relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-12">
+    <section id="calculators" className="py-16 sm:py-28 bg-white border-b border-slate-100 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-8 sm:space-y-12">
         
         {/* Section Header */}
         <div className="text-center sm:text-left space-y-2 max-w-xl">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#1D4ED8] bg-blue-50 px-3 py-1 rounded-full border border-blue-200/80 inline-block">
+          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#1D4ED8] bg-blue-50 px-2.5 sm:px-3 py-1 rounded-full border border-blue-200/80 inline-block">
             Fitness Calculators
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight uppercase">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight uppercase">
             Know Your Numbers. <span className="text-[#3F87FF]">Train With Purpose.</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
@@ -156,29 +156,29 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
         </div>
 
         {/* 2-Column Compact Calculator Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 items-start">
           
           {/* ========================================================= */}
           {/* CALCULATOR 1: Daily Calorie Target (Mifflin–St Jeor)     */}
           {/* ========================================================= */}
-          <div className="bg-slate-50/90 border border-slate-200/90 rounded-3xl p-5 sm:p-6 shadow-xs space-y-4">
+          <div className="bg-slate-50/90 border border-slate-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-xs space-y-4">
             
             {/* Header & Goal Pills */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200/80 pb-3">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-xl bg-[#3F87FF] text-white flex items-center justify-center shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.38)] border border-[#1E66E2]">
-                  <Flame className="w-4 h-4 text-white fill-white" />
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 border-b border-slate-200/80 pb-3">
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#3F87FF] text-white flex items-center justify-center shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.38)] border border-[#1E66E2] shrink-0">
+                  <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white fill-white" />
                 </div>
                 <div>
                   <h3 className="text-xs sm:text-sm font-extrabold text-slate-900 uppercase tracking-wide">
                     Calorie Target
                   </h3>
-                  <div className="text-[10px] font-semibold text-slate-500">Mifflin–St Jeor Formula</div>
+                  <div className="text-[9px] sm:text-[10px] font-semibold text-slate-500">Mifflin–St Jeor Formula</div>
                 </div>
               </div>
 
               {/* Goal Pills */}
-              <div className="flex items-center gap-1 bg-white border border-slate-200/90 p-1 rounded-xl shadow-2xs self-start sm:self-auto">
+              <div className="flex items-center gap-1 bg-white border border-slate-200/90 p-0.5 rounded-xl shadow-2xs self-start sm:self-auto">
                 {(['lose', 'maintain', 'gain'] as const).map((g) => {
                   const isSelected = calGoal === g;
                   return (
@@ -186,13 +186,13 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
                       key={g}
                       type="button"
                       onClick={() => setCalGoal(g)}
-                      className={`px-2.5 py-1 rounded-lg text-[10px] font-extrabold transition-all cursor-pointer select-none ${
+                      className={`px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg text-[9px] sm:text-[10px] font-extrabold transition-all cursor-pointer select-none ${
                         isSelected
                           ? 'bg-[#3F87FF] text-white shadow-xs'
                           : 'text-slate-600 hover:text-slate-900'
                       }`}
                     >
-                      {g === 'lose' ? 'Fat Loss' : g === 'maintain' ? 'Maintain' : 'Muscle Gain'}
+                      {g === 'lose' ? 'Fat Loss' : g === 'maintain' ? 'Maintain' : 'Gain'}
                     </button>
                   );
                 })}
@@ -201,11 +201,11 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
 
             {/* Inputs Grid */}
             <div className="space-y-3">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 
-                {/* Age Input (Clean text input without 0 lock) */}
+                {/* Age Input */}
                 <div>
-                  <label className="block text-[10px] font-extrabold text-slate-600 uppercase tracking-wider mb-1">
+                  <label className="block text-[9px] sm:text-[10px] font-extrabold text-slate-600 uppercase tracking-wider mb-1">
                     Age (yrs)
                   </label>
                   <input
@@ -217,13 +217,13 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
                       const val = e.target.value.replace(/[^0-9]/g, '');
                       setCalAge(val);
                     }}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-900 focus:outline-none focus:border-[#3F87FF] shadow-2xs transition-colors"
+                    className="w-full bg-white border border-slate-200 rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs font-bold text-slate-900 focus:outline-none focus:border-[#3F87FF] shadow-2xs transition-colors"
                   />
                 </div>
 
                 {/* Custom Modern Gender Dropdown */}
                 <div className="relative">
-                  <label className="block text-[10px] font-extrabold text-slate-600 uppercase tracking-wider mb-1">
+                  <label className="block text-[9px] sm:text-[10px] font-extrabold text-slate-600 uppercase tracking-wider mb-1">
                     Gender
                   </label>
                   <button
@@ -232,10 +232,10 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
                       setIsGenderDropdownOpen(!isGenderDropdownOpen);
                       setIsActivityDropdownOpen(false);
                     }}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-900 flex items-center justify-between focus:outline-none focus:border-[#3F87FF] shadow-2xs cursor-pointer select-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs font-bold text-slate-900 flex items-center justify-between focus:outline-none focus:border-[#3F87FF] shadow-2xs cursor-pointer select-none"
                   >
                     <span className="capitalize">{calGender}</span>
-                    <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${isGenderDropdownOpen ? 'rotate-180 text-[#3F87FF]' : ''}`} />
+                    <span className="text-[10px] text-slate-400">▼</span>
                   </button>
 
                   <AnimatePresence>
@@ -270,7 +270,7 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
 
                 {/* Height Input */}
                 <div>
-                  <label className="block text-[10px] font-extrabold text-slate-600 uppercase tracking-wider mb-1">
+                  <label className="block text-[9px] sm:text-[10px] font-extrabold text-slate-600 uppercase tracking-wider mb-1">
                     Height (cm)
                   </label>
                   <input
@@ -282,13 +282,13 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
                       const val = e.target.value.replace(/[^0-9]/g, '');
                       setCalHeight(val);
                     }}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-900 focus:outline-none focus:border-[#3F87FF] shadow-2xs transition-colors"
+                    className="w-full bg-white border border-slate-200 rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs font-bold text-slate-900 focus:outline-none focus:border-[#3F87FF] shadow-2xs transition-colors"
                   />
                 </div>
 
                 {/* Weight Input */}
                 <div>
-                  <label className="block text-[10px] font-extrabold text-slate-600 uppercase tracking-wider mb-1">
+                  <label className="block text-[9px] sm:text-[10px] font-extrabold text-slate-600 uppercase tracking-wider mb-1">
                     Weight (kg)
                   </label>
                   <input
@@ -300,7 +300,7 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
                       const val = e.target.value.replace(/[^0-9]/g, '');
                       setCalWeight(val);
                     }}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-900 focus:outline-none focus:border-[#3F87FF] shadow-2xs transition-colors"
+                    className="w-full bg-white border border-slate-200 rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs font-bold text-slate-900 focus:outline-none focus:border-[#3F87FF] shadow-2xs transition-colors"
                   />
                 </div>
 
@@ -308,7 +308,7 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
 
               {/* Custom Modern Animated Activity Selector */}
               <div className="relative">
-                <label className="block text-[10px] font-extrabold text-slate-600 uppercase tracking-wider mb-1">
+                <label className="block text-[9px] sm:text-[10px] font-extrabold text-slate-600 uppercase tracking-wider mb-1">
                   Weekly Activity Level
                 </label>
                 <button
@@ -317,14 +317,14 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
                     setIsActivityDropdownOpen(!isActivityDropdownOpen);
                     setIsGenderDropdownOpen(false);
                   }}
-                  className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 flex items-center justify-between font-semibold focus:outline-none focus:border-[#3F87FF] shadow-2xs cursor-pointer select-none text-left"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-900 flex items-center justify-between font-semibold focus:outline-none focus:border-[#3F87FF] shadow-2xs cursor-pointer select-none text-left"
                 >
-                  <div className="flex items-center gap-2 truncate">
+                  <div className="flex items-center gap-1.5 truncate">
                     <Activity className="w-3.5 h-3.5 text-[#3F87FF] shrink-0" />
-                    <span className="font-bold text-slate-900">{activeActivityObj.label}</span>
+                    <span className="font-bold text-slate-900 truncate">{activeActivityObj.label}</span>
                     <span className="text-[10px] text-slate-500 hidden sm:inline font-normal">({activeActivityObj.desc})</span>
                   </div>
-                  <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform shrink-0 ${isActivityDropdownOpen ? 'rotate-180 text-[#3F87FF]' : ''}`} />
+                  <span className="text-[10px] text-slate-400">▼</span>
                 </button>
 
                 <AnimatePresence>
@@ -334,7 +334,7 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
                       animate={{ opacity: 1, y: 4, scale: 1 }}
                       exit={{ opacity: 0, y: -4, scale: 0.98 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute top-full left-0 right-0 z-30 bg-white border border-slate-200 rounded-xl shadow-xl p-1.5 space-y-1 max-h-56 overflow-y-auto"
+                      className="absolute top-full left-0 right-0 z-30 bg-white border border-slate-200 rounded-xl shadow-xl p-1 space-y-1 max-h-56 overflow-y-auto"
                     >
                       {ACTIVITY_OPTIONS.map((item) => {
                         const isSelected = calActivity === item.value;
@@ -346,7 +346,7 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
                               setCalActivity(item.value);
                               setIsActivityDropdownOpen(false);
                             }}
-                            className={`w-full text-left px-3 py-2 rounded-lg text-xs font-semibold flex items-center justify-between transition-colors cursor-pointer ${
+                            className={`w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-semibold flex items-center justify-between transition-colors cursor-pointer ${
                               isSelected ? 'bg-blue-50 text-[#1D4ED8] font-bold' : 'hover:bg-slate-50 text-slate-700'
                             }`}
                           >
@@ -354,7 +354,7 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
                               <div className="text-xs font-bold text-slate-900">{item.label}</div>
                               <div className="text-[10px] text-slate-500">{item.desc}</div>
                             </div>
-                            {isSelected && <Check className="w-4 h-4 text-[#3F87FF] shrink-0" />}
+                            {isSelected && <Check className="w-3.5 h-3.5 text-[#3F87FF] shrink-0" />}
                           </button>
                         );
                       })}
@@ -364,35 +364,35 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
               </div>
             </div>
 
-            {/* Live Instant Results Card */}
+            {/* Live Instant Results Card (Responsive font sizes on mobile) */}
             <motion.div
               layout
-              className="bg-white border border-slate-200/90 rounded-2xl p-3.5 sm:p-4 space-y-2.5 shadow-2xs"
+              className="bg-white border border-slate-200/90 rounded-2xl p-3 sm:p-4 space-y-2 shadow-2xs"
             >
-              <div className="flex items-baseline justify-between border-b border-slate-100 pb-2">
-                <span className="text-[11px] font-extrabold text-slate-600 uppercase tracking-wider">
+              <div className="flex flex-wrap items-baseline justify-between gap-1 border-b border-slate-100 pb-1.5">
+                <span className="text-[10px] sm:text-xs font-extrabold text-slate-600 uppercase tracking-wider">
                   Target Calories:
                 </span>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-2xl sm:text-3xl font-black text-[#3F87FF] tracking-tight">
+                  <span className="text-xl sm:text-2xl font-black text-[#3F87FF] tracking-tight">
                     {calorieResult.target}
                   </span>
-                  <span className="text-[10px] font-extrabold text-slate-500 uppercase">kcal / day</span>
+                  <span className="text-[9px] sm:text-[10px] font-extrabold text-slate-500 uppercase">kcal / day</span>
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-2 text-center text-xs">
-                <div className="bg-slate-50 rounded-xl p-2 border border-slate-100">
-                  <div className="text-[9px] font-extrabold text-slate-500 uppercase">BMR (Rest)</div>
-                  <div className="font-extrabold text-slate-900 mt-0.5">{calorieResult.bmr} kcal</div>
+              <div className="grid grid-cols-3 gap-1.5 text-center text-xs">
+                <div className="bg-slate-50 rounded-xl p-1.5 sm:p-2 border border-slate-100">
+                  <div className="text-[8px] sm:text-[9px] font-extrabold text-slate-500 uppercase">BMR (Rest)</div>
+                  <div className="font-extrabold text-slate-900 text-xs sm:text-sm mt-0.5">{calorieResult.bmr} kcal</div>
                 </div>
-                <div className="bg-slate-50 rounded-xl p-2 border border-slate-100">
-                  <div className="text-[9px] font-extrabold text-slate-500 uppercase">TDEE (Burn)</div>
-                  <div className="font-extrabold text-slate-900 mt-0.5">{calorieResult.tdee} kcal</div>
+                <div className="bg-slate-50 rounded-xl p-1.5 sm:p-2 border border-slate-100">
+                  <div className="text-[8px] sm:text-[9px] font-extrabold text-slate-500 uppercase">TDEE (Burn)</div>
+                  <div className="font-extrabold text-slate-900 text-xs sm:text-sm mt-0.5">{calorieResult.tdee} kcal</div>
                 </div>
-                <div className="bg-blue-50/80 rounded-xl p-2 border border-blue-100">
-                  <div className="text-[9px] font-extrabold text-[#1D4ED8] uppercase">Protein Goal</div>
-                  <div className="font-extrabold text-[#3F87FF] mt-0.5">{calorieResult.protein}g / day</div>
+                <div className="bg-blue-50/80 rounded-xl p-1.5 sm:p-2 border border-blue-100">
+                  <div className="text-[8px] sm:text-[9px] font-extrabold text-[#1D4ED8] uppercase">Protein Goal</div>
+                  <div className="font-extrabold text-[#3F87FF] text-xs sm:text-sm mt-0.5">{calorieResult.protein}g / day</div>
                 </div>
               </div>
             </motion.div>
@@ -402,33 +402,33 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
           {/* ========================================================= */}
           {/* CALCULATOR 2: BMI Calculator & Minimal Gauge               */}
           {/* ========================================================= */}
-          <div className="bg-slate-50/90 border border-slate-200/90 rounded-3xl p-5 sm:p-6 shadow-xs space-y-4">
+          <div className="bg-slate-50/90 border border-slate-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-xs space-y-4">
             
             {/* Header & Category Badge */}
             <div className="flex items-center justify-between border-b border-slate-200/80 pb-3">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-xl bg-[#3F87FF] text-white flex items-center justify-center shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.38)] border border-[#1E66E2]">
-                  <Scale className="w-4 h-4 text-white" />
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#3F87FF] text-white flex items-center justify-center shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.38)] border border-[#1E66E2] shrink-0">
+                  <Scale className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
                 </div>
                 <div>
                   <h3 className="text-xs sm:text-sm font-extrabold text-slate-900 uppercase tracking-wide">
                     BMI Calculator
                   </h3>
-                  <div className="text-[10px] font-semibold text-slate-500">WHO Body Mass Index</div>
+                  <div className="text-[9px] sm:text-[10px] font-semibold text-slate-500">WHO Body Mass Index</div>
                 </div>
               </div>
 
               {/* Minimal Category Pill */}
-              <div className={`px-2.5 py-1 rounded-full border text-[11px] font-black uppercase tracking-wider transition-colors ${bmiResult.bgBadge}`}>
+              <div className={`px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full border text-[10px] sm:text-[11px] font-black uppercase tracking-wider transition-colors ${bmiResult.bgBadge}`}>
                 {bmiResult.category}
               </div>
             </div>
 
             {/* Inputs Grid */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2.5">
               {/* Height Input */}
               <div>
-                <label className="block text-[10px] font-extrabold text-slate-600 uppercase tracking-wider mb-1">
+                <label className="block text-[9px] sm:text-[10px] font-extrabold text-slate-600 uppercase tracking-wider mb-1">
                   Height (cm)
                 </label>
                 <input
@@ -440,13 +440,13 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
                     const val = e.target.value.replace(/[^0-9]/g, '');
                     setBmiHeight(val);
                   }}
-                  className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-900 focus:outline-none focus:border-[#3F87FF] shadow-2xs transition-colors"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs font-bold text-slate-900 focus:outline-none focus:border-[#3F87FF] shadow-2xs transition-colors"
                 />
               </div>
 
               {/* Weight Input */}
               <div>
-                <label className="block text-[10px] font-extrabold text-slate-600 uppercase tracking-wider mb-1">
+                <label className="block text-[9px] sm:text-[10px] font-extrabold text-slate-600 uppercase tracking-wider mb-1">
                   Weight (kg)
                 </label>
                 <input
@@ -458,7 +458,7 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
                     const val = e.target.value.replace(/[^0-9]/g, '');
                     setBmiWeight(val);
                   }}
-                  className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-900 focus:outline-none focus:border-[#3F87FF] shadow-2xs transition-colors"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs font-bold text-slate-900 focus:outline-none focus:border-[#3F87FF] shadow-2xs transition-colors"
                 />
               </div>
             </div>
@@ -466,27 +466,27 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
             {/* Minimal & Premium BMI Gauge Card */}
             <motion.div
               layout
-              className="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 space-y-4 shadow-2xs"
+              className="bg-white border border-slate-200/90 rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-2xs"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">Your Body Score</div>
-                  <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+                  <div className="text-[9px] sm:text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">Your Body Score</div>
+                  <div className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
                     BMI <span className="text-[#3F87FF]">{bmiResult.bmi}</span>
                   </div>
                 </div>
 
                 <div className="text-right">
-                  <div className="text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">Classification</div>
-                  <div className={`text-xs font-extrabold uppercase tracking-wide ${bmiResult.color}`}>
+                  <div className="text-[9px] sm:text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">Classification</div>
+                  <div className={`text-[11px] sm:text-xs font-extrabold uppercase tracking-wide ${bmiResult.color}`}>
                     {bmiResult.category}
                   </div>
                 </div>
               </div>
 
               {/* Ultra-Minimal Color Spectrum Progress Bar */}
-              <div className="space-y-2 pt-1">
-                <div className="relative h-2.5 w-full rounded-full overflow-hidden flex shadow-[inset_0_1px_2px_rgba(0,0,0,0.08)]">
+              <div className="space-y-1.5 pt-1">
+                <div className="relative h-2 w-full rounded-full overflow-hidden flex shadow-[inset_0_1px_2px_rgba(0,0,0,0.08)]">
                   <div className="bg-blue-400 w-[25%]" title="Underweight (< 18.5)" />
                   <div className="bg-emerald-500 w-[35%]" title="Healthy (18.5 – 24.9)" />
                   <div className="bg-amber-400 w-[20%]" title="Overweight (25 – 29.9)" />
@@ -494,19 +494,19 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
                 </div>
 
                 {/* Animated Indicator Needle */}
-                <div className="relative w-full h-3">
+                <div className="relative w-full h-2.5">
                   <motion.div
                     initial={{ left: '46%' }}
                     animate={{ left: `${bmiResult.percent}%` }}
                     transition={{ type: 'spring', damping: 25, stiffness: 260 }}
                     className="absolute -top-1 -translate-x-1/2 flex flex-col items-center"
                   >
-                    <div className="w-3 h-3 bg-slate-900 border-2 border-white rounded-full shadow-md" />
+                    <div className="w-2.5 h-2.5 bg-slate-900 border-2 border-white rounded-full shadow-md" />
                   </motion.div>
                 </div>
 
                 {/* Labels */}
-                <div className="grid grid-cols-4 text-[9px] font-bold text-slate-500 text-center uppercase tracking-tight">
+                <div className="grid grid-cols-4 text-[8px] sm:text-[9px] font-bold text-slate-500 text-center uppercase tracking-tight">
                   <span className="text-blue-600">&lt; 18.5</span>
                   <span className="text-emerald-700">18.5 – 24.9</span>
                   <span className="text-amber-700">25 – 29.9</span>
@@ -520,30 +520,30 @@ export default function FitnessCalculators({ onOpenBooking }: FitnessCalculators
         </div>
 
         {/* ========================================================= */}
-        {/* Natural Lead-In CTA Banner                                */}
+        {/* Natural Lead-In CTA Banner (Compact on mobile)            */}
         {/* ========================================================= */}
-        <div className="p-6 sm:p-7 rounded-3xl bg-slate-900 text-white border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
-          <div className="space-y-1 text-center sm:text-left">
-            <h3 className="text-base sm:text-lg font-extrabold tracking-tight">
+        <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-slate-900 text-white border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 shadow-xl">
+          <div className="space-y-1 text-center sm:text-left w-full sm:w-auto">
+            <h3 className="text-sm sm:text-lg font-extrabold tracking-tight">
               Want a personalized diet & workout blueprint?
             </h3>
-            <p className="text-xs text-slate-300">
+            <p className="text-[11px] sm:text-xs text-slate-300">
               Get an in-person body composition assessment with a Revamp Fitness certified trainer at Sector 20 Kharghar.
             </p>
           </div>
 
           <button
             onClick={() => onOpenBooking('Free Trainer Consultation & Diet Plan')}
-            className="px-6 py-3.5 bg-[#3F87FF] hover:bg-[#2C7AF5] text-white font-bold rounded-full text-xs uppercase tracking-wider border-[2.5px] border-[#1E66E2] hover:border-[#1758CA] shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.38)] hover:shadow-[inset_0_0_0_2px_rgba(255,255,255,0.6)] transition-all flex items-center gap-2 shrink-0 cursor-pointer active:scale-95 select-none"
+            className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3.5 bg-[#3F87FF] hover:bg-[#2C7AF5] text-white font-bold rounded-full text-xs uppercase tracking-wider border-[2.5px] border-[#1E66E2] hover:border-[#1758CA] shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.38)] hover:shadow-[inset_0_0_0_2px_rgba(255,255,255,0.6)] transition-all flex items-center justify-center gap-2 shrink-0 cursor-pointer active:scale-95 select-none"
           >
             <span>Talk to a Trainer</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </button>
         </div>
 
         {/* Small Scientific Disclaimer */}
-        <p className="text-center text-[10px] text-slate-500 flex items-center justify-center gap-1 font-medium">
-          <Info className="w-3 h-3 text-[#3F87FF]" />
+        <p className="text-center text-[9px] sm:text-[10px] text-slate-500 flex items-center justify-center gap-1 font-medium">
+          <Info className="w-3 h-3 text-[#3F87FF] shrink-0" />
           <span>Calculations use the Mifflin–St Jeor & WHO standards as fitness estimates, not medical advice.</span>
         </p>
 

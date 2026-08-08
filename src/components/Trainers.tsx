@@ -36,7 +36,7 @@ export default function Trainers() {
           </div>
 
           {/* Filter Pills with smooth sliding layout animation */}
-          <div className="flex items-center gap-1 p-1 bg-slate-100 border border-slate-200/80 rounded-2xl">
+          <div className="flex items-center gap-1 p-1 bg-slate-100 border border-slate-200/80 rounded-xl sm:rounded-2xl self-center sm:self-auto">
             {FILTER_ROLES.map((role) => {
               const isSelected = selectedRole === role;
               return (
@@ -44,7 +44,7 @@ export default function Trainers() {
                   key={role}
                   type="button"
                   onClick={() => setSelectedRole(role)}
-                  className={`relative px-4 py-2 rounded-xl text-xs font-extrabold tracking-tight transition-colors duration-200 cursor-pointer select-none ${
+                  className={`relative px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-[10px] sm:text-xs font-extrabold tracking-tight transition-colors duration-200 cursor-pointer select-none ${
                     isSelected ? 'text-[#1D4ED8]' : 'text-slate-600 hover:text-slate-950'
                   }`}
                 >
@@ -52,7 +52,7 @@ export default function Trainers() {
                     <motion.div
                       layoutId="activeTrainerFilter"
                       transition={{ type: 'spring', stiffness: 450, damping: 35 }}
-                      className="absolute inset-0 bg-white rounded-xl shadow-xs border border-blue-200"
+                      className="absolute inset-0 bg-white rounded-lg sm:rounded-xl shadow-xs border border-blue-200"
                     />
                   )}
                   <span className="relative z-10">{role}</span>

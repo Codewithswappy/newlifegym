@@ -87,23 +87,23 @@ export default function WhyChooseUs({ onOpenBooking }: WhyChooseUsProps) {
           ))}
         </div>
 
-        {/* Quick Trial Pass Callout Banner with exact inner-border button */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 text-white border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
-          <div className="space-y-1 text-center sm:text-left">
-            <h3 className="text-lg sm:text-xl font-extrabold tracking-tight">
+        {/* Quick Trial Pass Callout Banner (Compact on mobile) */}
+        <div className="p-4 sm:p-7 rounded-2xl sm:rounded-3xl bg-slate-900 text-white border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 shadow-xl">
+          <div className="space-y-1 text-center sm:text-left w-full sm:w-auto">
+            <h3 className="text-sm sm:text-xl font-extrabold tracking-tight">
               Ready to experience Revamp Fitness for yourself?
             </h3>
-            <p className="text-xs text-slate-300">
+            <p className="text-[11px] sm:text-xs text-slate-300">
               Claim a complimentary 1-day pass. Test our strength floor, cardio deck, or martial arts batch.
             </p>
           </div>
 
           <button
             onClick={() => onOpenBooking && onOpenBooking('Why Choose Us - Free Trial Pass')}
-            className="px-7 py-3.5 bg-[#3F87FF] hover:bg-[#2C7AF5] text-white font-bold rounded-full text-xs uppercase tracking-wider border-[2.5px] border-[#1E66E2] hover:border-[#1758CA] shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.38)] hover:shadow-[inset_0_0_0_2px_rgba(255,255,255,0.6)] transition-all flex items-center gap-2 shrink-0 cursor-pointer active:scale-95 select-none"
+            className="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 bg-[#3F87FF] hover:bg-[#2C7AF5] text-white font-bold rounded-full text-xs uppercase tracking-wider border-[2.5px] border-[#1E66E2] hover:border-[#1758CA] shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.38)] hover:shadow-[inset_0_0_0_2px_rgba(255,255,255,0.6)] transition-all flex items-center justify-center gap-2 shrink-0 cursor-pointer active:scale-95 select-none"
           >
             <span>Claim Free Pass</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </button>
         </div>
 
